@@ -1,18 +1,21 @@
-name: FTP Deploy
+name: FTP for XXXXXX to sakura
+
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
-  build:
-    name: Build
+  ftp-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: FTP Deploy
+      - uses: actions/checkout@v3
+      - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./index.html #アップ対象
