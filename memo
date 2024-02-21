@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-<<<<<<< HEAD
-=======
-      - name: echo github
-        run: echo '${{ github }}'
-        
->>>>>>> 17b4a58f1915c9e35e4770510ae457b86f962b69
       - uses: actions/checkout@v3
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
