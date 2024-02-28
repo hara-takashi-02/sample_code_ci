@@ -21,7 +21,7 @@ jobs:
           server: ftp.lolipop.jp
           username: fool.jp-marushikaku
           password: 1289thbk
-          server-dir: ~/web/test_ci/
+          server-dir: ~/web/test_ci/sample_code_ci/
           local-dir: ./
           exclude: |
             **/.git*
