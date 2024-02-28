@@ -29,3 +29,17 @@ jobs:
             .DS_Store
             **/.vscode/**
             README.md
+
+GitHubのプライベートリポジトリをLolipopサーバーにcloneするまで        
+https://qiita.com/ryunakae/items/1577c8015951522570d8
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub fool.jp-marushikaku@ssh.lolipop.jp -p2222
+
+Host lolipop
+  HostName     ftp.lolipop.jp
+  Port         2222
+  User         fool.jp-marushikaku
+  IdentityFile ~/.ssh/id_rsa
+
+git clone https://github.com/hara-takashi-02/sample_code_ci.git
+git clone git@github.com:hara-takashi-02/sample_code_ci.git
