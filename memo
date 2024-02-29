@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
@@ -43,3 +43,5 @@ Host lolipop
 
 git clone https://github.com/hara-takashi-02/sample_code_ci.git
 git clone git@github.com:hara-takashi-02/sample_code_ci.git
+
+ssh -A lolipop
