@@ -1,31 +1,19 @@
-name: FTP for lolipop
-
 on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
+  push:                 
+    branches:           
+      - master    
+name: Build and Deploy  
 jobs:
-  ftp-deploy:
-    runs-on: ubuntu-latest
-
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action     # JOBの名前
+    runs-on: ubuntu-latest      # 仮想環境の種類を指定
     steps:
-      - uses: actions/checkout@v3
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          #server: ${{ secrets.FTP_SERVER }}
-          #username: ${{ secrets.FTP_USERNAME }}
-          #password: ${{ secrets.FTP_PASSWORD }}
-          #server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          server: ftp.lolipop.jp
-          username: fool.jp-marushikaku
-          password: 1289thbk
-          server-dir: ~/web/test_ci/
-          local-dir: ./
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .DS_Store
-            **/.vscode/**
-            README.md
+      - uses: actions/checkout@master                   
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0   
+        env:                                        
+          FTP_SERVER: ftp.lolipop.jp   
+          FTP_USERNAME: fool.jp-marushikaku
+          FTP_PASSWORD: 1289thbk
+          LOCAL_DIR: ./                           
+          REMOTE_DIR: ~/web/test_ci/
